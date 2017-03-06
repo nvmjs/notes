@@ -1,0 +1,7 @@
+ul.box {
+  width: 100%;
+  display: flex; }
+  ul.box li {
+  	min-height: 100px;
+    flex: 1;
+    border: 1px solid blue; }

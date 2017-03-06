@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../css/init.css">
+	<link rel="stylesheet" href="../css/vue.css">
+	<script src='../js/vue.js'></script>
+</head>
+<body>
+	<ul id="app" class="box">
+		<li>
+			<div>
+				{{message}}
+				{{world}}
+			</div>			
+		</li>
+		<li>
+			<div id="app">
+			   <p>{{ one }}</p>
+			   <input v-model="one">
+			</div>
+		</li>
+		<li>
+			<div v-for="item in items">
+				{{item}}
+			</div>
+		</li>
+		<li>
+			<div v-for="name in nameall">
+				{{name.name}}
+			</div>
+		</li>
+		<li>
+			<div v-if="keys == 1">
+				<h1>YES</h1>
+			</div>
+		</li>
+		<li>
+			<div v-if="keys == 1">
+				<h1>YES</h1>
+				<h2>YES</h2>
+			</div>
+		</li>
+		<li>
+			<div v-show="keys == 1">
+				<h1>YES</h1>
+				<h2>YES</h2>
+			</div>
+		</li>
+	</ul>
+
+</body>
+<script>
+	new Vue({
+		el: '#app',
+		data: {
+			message:'Hello World!',
+			world:'111',
+			one:'yousi.com',
+			items:['111',2222,3333],
+			nameall:[
+				{'name':'孙云珠'},
+				{'name':'a'},
+				{'name':'b'},
+			],
+			keys:1,
+		}
+	});
+</script>
+</html>
