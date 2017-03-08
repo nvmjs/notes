@@ -15,43 +15,81 @@
 				{{world}}
 			</div>			
 		</li>
+
 		<li>
 			<div id="app">
 			   <p>{{ one }}</p>
 			   <input v-model="one">
 			</div>
 		</li>
+
 		<li>
 			<div v-for="item in items">
 				{{item}}
 			</div>
 		</li>
+
 		<li>
 			<div v-for="name in nameall">
 				{{name.name}}
 			</div>
 		</li>
+
 		<li>
 			<div v-if="keys == 1">
 				<h1>YES</h1>
 			</div>
 		</li>
+
 		<li>
 			<div v-if="keys == 1">
 				<h1>YES</h1>
 				<h2>YES</h2>
 			</div>
 		</li>
+
 		<li>
 			<div v-show="keys == 1">
 				<h1>YES</h1>
 				<h2>YES</h2>
 			</div>
 		</li>
+
+		<li>
+			<div v-bind:title="titles">
+				<h3>鼠标悬停查看时间</h3>
+			</div>
+		</li>
+
+		<li>
+			<div>
+				<p>{{message}}</p>
+				<button v-on:click="clicks">点击</button>
+			</div>
+		</li>
+
+		<li>
+			<div>
+				<ol>
+					<todo-item v-for="item in nameall" v-bind:todo="item"></todo-item>
+				</ol>
+			</div>
+		</li>
+
+		<li>
+			<div v-html="imgs">
+				
+			</div>
+		</li>
 	</ul>
 
 </body>
 <script>
+	Vue.component('todo-item', {
+	   props: ['todo'],
+	   template: '<li>{{ todo.name }}</li>'
+	})
+
 	new Vue({
 		el: '#app',
 		data: {
@@ -60,12 +98,19 @@
 			one:'yousi.com',
 			items:['111',2222,3333],
 			nameall:[
-				{'name':'孙云珠'},
+				{'name':'孙允珠'},
 				{'name':'a'},
 				{'name':'b'},
 			],
+			imgs:'孙允珠<img src="http://nvmjs.com/lib/img/sunyunzhu.png" alt="" />',
 			keys:1,
-		}
+			titles:'现在的的时间 ' + new Date(),			
+		},
+		methods:{
+			clicks: function(){
+				this.message = this.message.split('').reverse().join('');
+			}
+		}		
 	});
 </script>
 </html>
